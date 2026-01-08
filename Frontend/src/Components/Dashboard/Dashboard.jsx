@@ -20,7 +20,7 @@ function Dashboard() {
                 <h3 className="text-gray-500 text-sm font-medium mb-2">{stat.title}</h3>
                 <p className="text-3xl font-bold text-gray-800">{stat.value}</p>
               </div>
-              <div className={`w-14 h-14 rounded-xl bg-gradient-to-br ${stat.gradient} flex items-center justify-center`}>
+              <div className={`w-14 h-14 rounded-xl bg-linear-to-br ${stat.gradient} flex items-center justify-center`}>
                 <stat.icon className="w-6 h-6 text-white" />
               </div>
             </div>
