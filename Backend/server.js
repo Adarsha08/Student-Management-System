@@ -9,8 +9,6 @@ const pool = require('./db');
 app.use(cors());
 app.use(express.json());
 
-// Health route
-
 
 const authRoute = require('./routes/auth.route');
 app.use('/api/auth', authRoute);
