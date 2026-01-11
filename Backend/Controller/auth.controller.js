@@ -44,9 +44,10 @@ exports.loginAdmin =async (req, res) => {
     {
         return res.status(400).json({message:"Invalid Credentials"});
     }
-    //generate jwt token
+    //generate jwt token and put the admin id in payload so that we can identify the admin in protected routes and use the id wherever the req is sent from the frontend 
     const token =jwt.sign({adminId:admin.rows[0].id},process.env.JWT_Secret,{expiresIn:'1h'});
     res.json({message:"Login successful",token});//token lai client side ma store garne 
+   
   }
   catch(err)
   {

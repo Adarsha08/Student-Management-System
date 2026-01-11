@@ -9,9 +9,13 @@ const pool = require('./db');
 app.use(cors());
 app.use(express.json());
 
-
+//for auth routes
 const authRoute = require('./routes/auth.route');
 app.use('/api/auth', authRoute);
+
+//for student routes
+const studentRoute = require('./routes/student.route');
+app.use('/api/students', studentRoute);
 
 
 app.listen(PORT, () => {
