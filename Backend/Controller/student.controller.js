@@ -36,3 +36,28 @@ exports.createStudent = async (req, res) => {
     res.status(500).json({ message: "Internal server error" });
   }
 };
+
+
+exports.getStudents = async (req, res) => {
+  try {
+    const adminId = req.adminId;
+
+    const result = await pool.query(
+      `SELECT id, name, email, faculty, semester 
+       FROM students 
+       WHERE admin_id = $1 
+       ORDER BY id DESC`,
+      [adminId]
+    );
+
+    return res.status(200).json({
+      total: result.rows.length,
+      students: result.rows
+    });
+
+  } catch (err) {
+    console.error("Error getting students:", err.message);
+    res.status(500).json({ message: "Internal server error" });
+  }
+};
+
