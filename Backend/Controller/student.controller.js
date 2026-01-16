@@ -38,12 +38,12 @@ exports.createStudent = async (req, res) => {
 };
 
 
-exports.getStudents = async (req, res) => {
+exports.getAllStudents = async (req, res) => {
   try {
     const adminId = req.adminId;
 
     const result = await pool.query(
-      `SELECT id, name, email, faculty, semester 
+      `SELECT id, name, email, address, class 
        FROM students 
        WHERE admin_id = $1 
        ORDER BY id DESC`,

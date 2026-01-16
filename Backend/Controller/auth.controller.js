@@ -1,6 +1,7 @@
 const pool = require('../db');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
+
 require('dotenv').config();
 
 exports.registerAdmin =async (req, res) => {
@@ -34,6 +35,7 @@ exports.loginAdmin =async (req, res) => {
     const {email,password}=req.body;
     //check if admin exists
     const admin =await pool.query("SELECT * FROM admins WHERE email=$1",[email]);
+  
     if(admin.rows.length===0)
     {
         return res.status(400).json({message:"Invalid Credentials"});
