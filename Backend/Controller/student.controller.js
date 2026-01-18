@@ -57,7 +57,7 @@ exports.getAllStudents = async (req, res) => {
 
   } catch (err) {
     console.error("Error getting students:", err.message);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: "Internal server errorr " });
   }
 };
 
